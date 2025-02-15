@@ -252,6 +252,20 @@ def user_stats(df, city):
     print(f"This took {time.time() - start_time} seconds.")
     print('-' * 40)
 
+
+
+def display_raw_data(df):
+    #Display raw data upon user request in chunks of 5 rows.
+    row_start = 0
+    row_end = 5
+    while row_start < len(df):
+        view_data = input("Would you like to see 5 lines of raw data? Enter 'yes' or 'no': ").lower()
+        if view_data != 'yes':
+            break
+        print(df.iloc[row_start:row_end])
+        row_start += 5
+        row_end += 5 
+
 # Main function to run the program
 def main():
     while True:
